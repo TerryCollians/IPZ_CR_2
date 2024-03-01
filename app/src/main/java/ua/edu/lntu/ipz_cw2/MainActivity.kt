@@ -31,7 +31,7 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-
+                    SliderWithButton()
                 }
             }
         }
@@ -39,7 +39,7 @@ class MainActivity : ComponentActivity() {
 }
 
 @Composable
-fun SliderWithButton(){
+fun SliderWithButton() {
     val texts = listOf("Присідання", "Віджимання", "Підтягування")
     // Список який буде перемикатись
 
