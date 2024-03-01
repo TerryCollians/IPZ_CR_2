@@ -6,13 +6,15 @@ import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
+import androidx.compose.material3.Button
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
@@ -41,9 +43,13 @@ fun SliderWithButton(){
     val texts = listOf("Присідання", "Віджимання", "Підтягування")
     // Список який буде перемикатись
 
-    val currentIndex by remember { mutableStateOf(0) }
+    var currentIndex by remember { mutableIntStateOf(0) }
     // змінна для початкового індексу
 
+
+    fun changeTextIndex() {
+        currentIndex = (currentIndex + 1) % texts.size
+    }
 
     // Графічне відображення інтерфейсу
     Column(
@@ -57,8 +63,12 @@ fun SliderWithButton(){
         //Поточний текст
         Text(
             text = texts[currentIndex],
-            modifier = Modifier.padding(vertical = 16.dp)
+            modifier = Modifier.padding(vertical = 16.dp) //внутрішні відступи
         )
+
+        Button(onClick = { changeTextIndex() }) {
+            Text("Наступний текст")
+        }
     }
 }
 
