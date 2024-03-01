@@ -54,6 +54,11 @@ fun SliderWithButton(){
     )
     {
 
+        //Поточний текст
+        Text(
+            text = texts[currentIndex],
+            modifier = Modifier.padding(vertical = 16.dp)
+        )
     }
 }
 
@@ -61,6 +66,6 @@ fun SliderWithButton(){
 @Composable
 fun SliderWithButtonPreview() {
     IPZ_CR_2Theme {
-
+        SliderWithButton()
     }
 }
