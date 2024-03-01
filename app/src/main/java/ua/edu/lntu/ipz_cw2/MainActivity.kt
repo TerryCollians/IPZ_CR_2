@@ -46,7 +46,7 @@ fun SliderWithButton(){
     var currentIndex by remember { mutableIntStateOf(0) }
     // змінна для початкового індексу
 
-
+    // функція яка міняє індекс тексту
     fun changeTextIndex() {
         currentIndex = (currentIndex + 1) % texts.size
     }
@@ -66,6 +66,7 @@ fun SliderWithButton(){
             modifier = Modifier.padding(vertical = 16.dp) //внутрішні відступи
         )
 
+        // Кнопка для перемикання тексту з використанням функції changeTextIndex ()
         Button(onClick = { changeTextIndex() }) {
             Text("Наступний текст")
         }
